@@ -1,5 +1,5 @@
 {% set versions = {
-    "0.0.0": "REPLACE_WITH_SHA256"
+    "0.1.1": "REPLACE_WITH_SHA256"
 } %}
 
 {% set version = environ.get('COMMIT_VERSION', None) %}
@@ -13,7 +13,7 @@ package:
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
-  url: "https://gitlab.cern.ch/tdado/combiner/archive/refs/tags/{{ version }}.tar.gz"   # TODO: confirm upstream's actual tag/tarball naming
+  url: "https://gitlab.cern.ch/tdado/combiner/-/archive/v{{ version }}/combiner-v{{ version }}.tar.gz"
   {% if versions.get(version, None) %}
   sha256: {{ versions.get(version) }}
   {% endif %}
@@ -25,15 +25,16 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
     - make
   host:
-    # TODO: library dependencies
+    # hep-forge's own root -- NOT conda-forge's root_base, see
+    # feedback-use-local-root-not-root-base memory
+    - root
   run:
-    # TODO: runtime dependencies
+    - root
 
 test:
   commands:
