@@ -11,6 +11,11 @@ Builds linux-amd64 + linux-arm64 in one matrix workflow and uploads to the
 
 Combiner: statistical combination tool built on ROOT
 
+## Architectures
+
+State per architecture: see the platforms badge above or [anaconda.org/hep-forge/combiner](https://anaconda.org/hep-forge/combiner).
+
+
 ## Install
 
 ```bash
@@ -20,3 +25,4 @@ conda install -c hep-forge -c conda-forge combiner
 ## Maintainers
 
 * [@meiyasan](https://github.com/meiyasan/)
+
