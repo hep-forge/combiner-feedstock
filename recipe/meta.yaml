@@ -1,5 +1,5 @@
 {% set versions = {
-    "0.1.1": "REPLACE_WITH_SHA256"
+    "0.1.1": "03f779c660efcccb7da91114adc303f87a868f848d16637c8be5d9131c1b36c7"
 } %}
 
 {% set version = environ.get('COMMIT_VERSION', None) %}
@@ -29,21 +29,29 @@ requirements:
     - {{ stdlib('c') }}
     - cmake
     - make
+    - sed
   host:
     # hep-forge's own root -- NOT conda-forge's root_base, see
     # feedback-use-local-root-not-root-base memory
     - root
+    - yaml-cpp
   run:
     - root
+    - yaml-cpp
 
 test:
   commands:
-    - echo "TODO: a real smoke test"
+    - test -f $PREFIX/lib/libCombiner${SHLIB_EXT}
+    - test -f $PREFIX/bin/runCombiner
 
 about:
   home: "https://gitlab.cern.ch/tdado/combiner"
   license: "Apache-2.0"
+  license_file: LICENSE
   summary: "Combiner: statistical combination tool built on ROOT"
+  description: |
+    Combiner is a statistical combination tool built on ROOT's RooFit/RooStats,
+    with bootstrap and parametrisation utilities.
 
 extra:
   recipe-maintainers:
