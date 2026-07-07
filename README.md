@@ -13,7 +13,12 @@ Combiner: statistical combination tool built on ROOT
 
 ## Architectures
 
-State per architecture: see the platforms badge above or [anaconda.org/hep-forge/combiner](https://anaconda.org/hep-forge/combiner).
+| Architecture | Latest published |
+|--------------|------------------|
+| linux-amd64 (`linux-64`) | ✅ `0.1.1` |
+| linux-arm64 (`linux-aarch64`) | ✅ `0.1.1` |
+
+_As of the last feedstock render; the badges above are live._
 
 
 ## Install
