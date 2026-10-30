@@ -31,3 +31,8 @@ libgcc_version:        # [linux]
   - 14.*
 libstdcxx_version:     # [linux]
   - 14.*
+
+# C, C++ and Fortran come from one GCC release: pin each to the same major,
+# also where the recipe does not call that compiler itself.
+c_compiler_version:   # [linux]
+  - 14
