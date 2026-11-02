@@ -7,9 +7,9 @@ c_stdlib_version:
   - 11.0  # [osx]
 
 c_compiler:
-  - gcc
+  - gcc                      # [linux]
 cxx_compiler:
-  - gxx
+  - gxx                      # [linux]
 
 # ---- Compiler floor (ABI)
 # Pin the compiler major instead of inheriting conda-build's "newest
@@ -26,13 +26,13 @@ cxx_compiler:
 # effect (14 defaults to gnu++17); source that requires a particular
 # standard should set CMAKE_CXX_STANDARD explicitly as well.
 cxx_compiler_version:  # [linux]
-  - 14
+  - 14                       # [linux]
 libgcc_version:        # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libstdcxx_version:     # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 
 # C, C++ and Fortran come from one GCC release: pin each to the same major,
 # also where the recipe does not call that compiler itself.
 c_compiler_version:   # [linux]
-  - 14
+  - 14                       # [linux]
