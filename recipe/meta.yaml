@@ -39,10 +39,11 @@ requirements:
   host:
     # hep-forge's own root -- NOT conda-forge's root_base, see
     # feedback-use-local-root-not-root-base memory
-    - root
+    - root_base {{ root }}.* cxx{{ root_cxx_standard }}*
+    - python
     - yaml-cpp
   run:
-    - root
+    - {{ pin_compatible('root_base', exact=True) }}
     - yaml-cpp
 
 test:
